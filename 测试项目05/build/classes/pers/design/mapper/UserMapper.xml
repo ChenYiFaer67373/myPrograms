@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.design.mapper.UserMapper">
+	<cache readOnly="true"></cache><!-- 设置readOnly为true可以进行二次缓存 -->
+	<select id="selectUserByName" resultType="User" parameterType="String">
+		select * from user where userName=#{0}
+	</select>
+	<!-- 登录 -->
+	<select id="selectUserByNameAndPassword" resultType="User">
+		select * from user where userName=#{userName} and password=#{password}
+	</select>
+	<!-- 注册 -->
+	<insert id="insertNewUser" >
+		insert into user(userName,password,registerDate) values(#{arg0},#{arg1},#{arg2,jdbcType=TIMESTAMP})
+	</insert>	
+	<!-- 用于验证用户名是否已存在 -->
+	<select id="selUserName" resultType="String" parameterType="String">
+		select userName from user where userName=#{0}
+	</select>
+	<!-- 更新个人信息 -->
+	<update id="updateUserInformation" parameterType="User" >
+		update user
+		<set>
+			sex=#{sex},
+			<if test="userName!=null and userName!=''">
+				userName=#{userName},
+			</if>
+			<if test="age!=0 and age!=''">
+				age=#{age},
+			</if>
+			<if test="email!=null and email!=''">
+				email=#{email},
+			</if>
+		</set>
+			where UID=#{UID}
+	</update>
+	<!--修改密码 -->
+	<update id="updatePassword" parameterType="User">
+		update user set password=#{password} where UID=#{UID}
+	</update>
+	<!-- 查询用户名个数，返回0表示用户名可用 -->
+	<select id="countOfUserName" parameterType="String" resultType="int">
+		select count(*) from user where userName=#{0}
+	</select>
+	<select id="selAll" resultType="User">
+		select * from user
+	</select>
+</mapper>

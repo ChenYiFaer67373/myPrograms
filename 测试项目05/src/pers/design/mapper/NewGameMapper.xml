@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.design.mapper.NewGameMapper">
+	<cache readOnly="true"></cache>
+	
+	<insert id="insertData" parameterType="NewGame">
+		insert into new_game(name,date,company,type,score,img,introduceUrl) values(#{name},#{date},#{company},#{type},#{score},#{img},#{introduceUrl})
+	</insert>
+	<select id="selAll"  resultType="NewGame">
+		select * from new_game
+	</select>
+	<select id="selByScore"  resultType="NewGame">
+		select * from new_game order by score desc
+	</select>
+	
+	<select id="selByDate"  resultType="NewGame">
+		select * from new_game date by score desc
+	</select>
+	<delete id="delAllData">
+		truncate new_game
+	</delete>
+</mapper>

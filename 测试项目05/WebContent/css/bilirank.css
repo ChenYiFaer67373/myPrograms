@@ -1,0 +1,185 @@
+body{
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+        #navgator{
+    font-weight: 400;
+    margin: 10px 0 10px 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    word-break: break-word;
+}.n{
+    margin-bottom: 10px;
+}.wrapper{
+    width: 1160px;
+    margin: 0 auto;
+    position: relative;
+}.n .n-inner{
+    height: 66px;
+    background: #fff;
+    box-shadow: 0 0 0 1px #eee;
+    border-radius: 0 0 4px 4px;
+    padding: 0 20px;
+    font-size: 0;
+}
+#rank-table{
+    height: 40px;
+    width:1160px;
+    margin: 0px auto;
+    overflow: hidden;
+    position: relative;
+    background: #edf2f9;
+    padding: 0;
+    border-radius: 4px;
+    clear: both;
+}
+ul{
+    list-style: none;
+    float: left;
+}
+li{
+    float: left;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+#rank-table ul li:hover{
+    background-color: aqua;
+}
+
+#content{
+    font-weight: 400;
+    margin: 30px 0 10px 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    word-break: break-word;
+}
+#content .rank-item{
+    padding: 0;
+    width: 1160px;
+    height:100px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 5px;
+    border-bottom: 1px solid #eee2e2;
+}
+#content .rank-item:hover{
+    border-bottom: 1px solid #cfc0c0;
+    border-left: 1px solid #cfc0c0;
+    border-right: 1px solid #cfc0c0;
+}
+.num{
+    width: 70px;
+    height: 100px;
+    float: left;
+    top:10px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: #b8c0cc;
+    font-family: simhei;
+}
+.rank-item .content{
+    width:600px;
+    height: 91px;
+    text-align: left;
+    float: left;
+    overflow:hidden;
+    
+}
+.rank-item .content .title{
+    height: 20px;
+    line-height: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #222;
+}
+.rank-item .content .detail{
+    color: #99a2aa;
+}
+.times,.danmu{
+    margin: 0 30px 0 20px;
+}
+.score{
+    width:300px;
+    height:70px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 60px;
+    float: right;
+}
+.score .pts{
+    font-size: 20px;
+    color:#56c2f5;
+}
+.container{
+    padding: 10px 0 0 100px;
+    overflow: hidden;
+}
+.clear:after{content:"";display:block;clear:both;}
+.clear{zoom:1;}
+
+.search{
+            position: absolute;
+            top: 75px;
+            right: 160px;
+            width: 268px;
+            height: 32px;
+            background-color: #e5e9ef;
+            background-color: rgba(0,0,0,.12);
+            border-radius: 6px;
+            font-size: 12px;
+            z-index: 10;
+        }
+        .search-form{
+            background-color: #fff;
+            background-color: hsla(0,0%,100%,.88);
+            display: block;
+            height: 32px;
+            border-radius: 4px;
+            transition: background-color .2s;
+        }.search-keyword{
+            float: left;
+            width: 200px;
+            color: #222;
+            font-size: 12px;
+            overflow: hidden;
+            height: 32px;
+            line-height: 32px;
+            padding: 0 12px;
+            border: 1px solid yellowgreen;
+            box-shadow: none;
+            background-color: transparent;
+            text-rendering: auto;
+            color: initial;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: start;
+            margin: 0em;
+            font: 400 13.3333px Arial;
+        }.search-submit{
+            display: block;
+            position: absolute;
+            right: 0;
+            width: 48px;
+            min-width: 0;
+            cursor: pointer;
+            height: 32px;
+            background: url(//static.hdslb.com/images/base/icons.png) -653px -720px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }

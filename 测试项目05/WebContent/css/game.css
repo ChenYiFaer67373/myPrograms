@@ -1,0 +1,54 @@
+body{
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.wrapper{
+    width: 1160px;
+    margin: 0 auto;
+}
+.game{
+    width: 45%;
+    height:150px;
+    float: left;
+    margin: 10px 0 10px 30px;
+    border-bottom: 1px solid #eee2e2;
+}
+.game:hover{
+    border-bottom: 1px solid #cfc0c0;
+}
+.img{
+    width: 100px;
+    height:100px;
+    margin:  0;
+    float: left;
+    transition: all .5s;
+    transform-origin: 50% 0 0;
+    background: #00a1d6;
+}.img:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.img img{
+	width:100px;
+	height:150px;
+}
+.content{
+    width: 400px;
+    height: 150px;
+    float: right;
+    overflow: hidden;
+}.name{
+    color: #00a1d6;
+    font-size: 20px;
+    font-weight: 700;
+    margin:10px 0 10px 20px;
+}.detail{
+    padding-left: 20px;
+}
+.detail li{
+    width: 250px;
+    float: left;
+    line-height:20px;
+}
+#toTop{position: fixed;	right:80px;	bottom: 100px;	cursor: pointer;display: none;}
+#toTop:hover{content: url("<%=request.getContextPath()%>/img/toTop-hover.png");}

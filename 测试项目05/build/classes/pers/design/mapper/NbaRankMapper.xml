@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.design.mapper.NbaRankMapper">
+	<cache readOnly="true"></cache>
+	
+	<!-- 获取所有的排名 -->
+	<select id="selAll" resultType="NbaRank">
+		select * from nba_rank
+	</select>
+	
+	<!-- 插入排名信息 -->
+	<insert id="insertData" parameterType="NbaRank">
+		insert into nba_rank values(#{rank.rank},#{rank.teamName},#{rank.teamLink},#{rank.winCount},#{rank.loseCount},#{rank.belong})
+	</insert>
+	
+	<!-- 清空本张表 -->
+	<delete id="deleteAllData">
+		delete from nba_rank
+	</delete>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.design.mapper.MusicListContentMapper">
+	<select id="selByListId" parameterType="int" resultType="MusicListContent">
+		select * from music_list_content where listId=#{0} order by `rank`
+	</select>
+	<insert id="addMusicListContent" parameterType="MusicListContent">
+		insert into music_list_content values(#{listId},#{singId},#{singName},#{time},#{singer},#{rank},#{singUrl})
+	</insert>
+	<delete id="delMusicListContent">
+		delete from music_list_content where listId=#{listId}
+	</delete>
+</mapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.design.mapper.BiliRankMapper">
+	<!-- 查询所有数据 -->
+	<select id="selAll" resultType="BiliRank">
+		select * from bilibili_rank
+	</select>
+	
+	<!-- 插入数据 -->
+	<insert id="insertData" parameterType="BiliRank">
+		insert into bilibili_rank values(#{ranking},#{categoryId},#{videoName},#{playTimes},#{danmuNum},#{upLoader},#{score},#{videoUrl},#{upLoaderUrl},#{cnTimes})
+	</insert>
+	
+	<!-- 根据categoryId查询 -->
+	<select id="selByCategoryId" resultType="BiliRank" parameterType="int">
+		select * from bilibili_rank where categoryId=#{0} order by ranking
+	</select>
+	
+	<delete id="deleteAllData">
+		delete from bilibili_rank
+	</delete>
+	
+	<!-- 查询总记录个数 -->
+	<select id="dataCount" resultType="int">
+		select count(*) from bilibili_rank
+	</select>
+	
+	<!-- 查询单个类别记录个数 -->
+	<select id="dataCountByCategoryId" resultType="int" parameterType="int">
+		select count(*) from bilibili_rank where categoryId=#{0}
+	</select>
+	
+	<select id="selByPage" resultType="BiliRank">
+		select * from bilibili_rank limit #{pageStart},#{pageSize}
+	</select>
+	
+	<select id="selByPageAndCategoryId" resultType="BiliRank">
+		select * from bilibili_rank where categoryId=#{categoryId} order by ranking limit #{pageStart},#{pageSize} 
+	</select>
+	
+	<resultMap type="BiliRank" id="biliRankMap">
+		<id column="ranking" property="ranking"/>
+		<id column="categoryId" property="categoryId"/>
+		<result column="videoName" property="videoName"/>
+		<result column="playTimes" property="playTimes"/>
+		<result column="danmuNum" property="danmuNum"/>
+		<result column="upLoader" property="upLoader"/>
+		<result column="score" property="score"/>
+		<result column="videoUrl" property="videoUrl"/>
+		<result column="upLoaderUrl" property="upLoaderUrl"/>
+		<result column="cnTimes" property="cnTimes"/>
+		<association property="biliCategory" select="pers.design.mapper.BiliCategoryMapper.selCategoryById" column="categoryId"></association>		
+	</resultMap>
+	
+	<select id="selByKeyword" parameterType="String" resultMap="biliRankMap">
+		select * from bilibili_rank where (videoName like concat(concat('%',#{0}),'%') or upLoader like concat(concat('%',#{0}),'%')) and categoryId not in (1) order by score desc
+	</select>
+</mapper>

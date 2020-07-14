@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.design.mapper.UserBiliCategoryMapper">
+	<cache readOnly="true"></cache>
+	<resultMap type="userBiliCategory" id="ubcMap">
+		<id column="userId" property="userId"/>
+		<id column="biliCategoryId" property="biliCategoryId"/>
+		<result column="addTime" property="addTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+		<association property="biliCategory" select="pers.design.mapper.BiliCategoryMapper.selCategoryById" column="biliCategoryId"></association>
+	</resultMap>
+	<select id="selMyCollectedCategory" resultMap="ubcMap" parameterType="int">
+		select * from user_bilicategory where userId=#{0}
+	</select>
+	
+	<select id="countOfThisCategory" resultType="int">
+		select count(*) from user_bilicategory where userId=#{userId} and biliCategoryId=#{biliCategoryId}
+	</select>
+	
+	<delete id="deleteMyCollectedCategory">
+		delete from user_bilicategory where userId=#{userId} and biliCategoryId=#{biliCategoryId}
+	</delete>
+	
+	<insert id="addMyCollectedCategory">
+		insert into user_bilicategory(userId,biliCategoryId,addTime) values(#{userId},#{biliCategoryId},#{addTime,jdbcType=TIMESTAMP})
+	</insert>
+</mapper>

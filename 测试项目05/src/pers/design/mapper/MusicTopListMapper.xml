@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.design.mapper.MusicTopListMapper">
+	<select id="selAll" resultType="MusicTopList">
+		select * from music_top_list where status=1  order by position
+	</select>
+	<select id="selAllByAdmin" resultType="MusicTopList">
+		select * from music_top_list order by position
+	</select>
+	<select id="selByMusicListId" parameterType="int" resultType="MusicTopList">
+		select * from music_top_list where listId=#{0}
+	</select>
+	
+	<update id="changeMusicListStatus">
+		update music_top_list set status=#{status} where listId=#{listId}
+	</update>
+	<insert id="addMusicList" parameterType="MusicTopList">
+		insert into music_top_list(listId,name,apiUrl) values(#{listId},#{name},#{apiUrl})
+	</insert>
+	
+	<delete id="delMusicList" parameterType="int">
+		delete from music_top_list where listId=#{0}
+	</delete>
+	
+	<select id="countOfListId" parameterType="int" resultType="int">
+		select count(*) from music_top_list where listId=#{0}
+	</select>
+</mapper>

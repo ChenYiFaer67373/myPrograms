@@ -1,0 +1,33 @@
+.page-wrapper{
+        height: 50px;
+        margin: 10px auto;
+        padding-left:400px;
+    }
+    .page-wrapper .content{
+        line-height: 50px;
+        font-size: 15px;
+        color: #666;
+    }
+    .page-wrapper .content a{
+        display: inline-block;
+        cursor: pointer;
+        line-height: normal;
+        text-decoration: none;
+        padding: 5px 9px;
+        font-size: 15px;
+        background: #fff;
+        color: #666;
+        border: 1px solid #e6e6e6;
+    }.page-wrapper .content a:hover{
+        color: red;
+    }.page-wrapper .content span{
+    	margin-left:20px;
+    }
+    .page-wrapper .content  a.selected{
+        background: #41c2e4e;
+        color: red;
+        border: 1px solid transparent;
+    }#setpage{
+    	width:50px;
+    	margin: 0 10px 0 10px;
+    }
